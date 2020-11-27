@@ -192,7 +192,7 @@ TEST_F(GdImageRendererTest, shouldReportErrorIfImageHeightIsLessThanMinimum)
 TEST_F(GdImageRendererTest, shouldReportErrorIfSampleRateIsTooHigh)
 {
     WaveformBuffer buffer;
-    buffer.setSampleRate(50001);
+    buffer.setSampleRate(96001);
     buffer.setSamplesPerPixel(64);
     buffer.appendSamples(-1, 1);
 
@@ -204,7 +204,7 @@ TEST_F(GdImageRendererTest, shouldReportErrorIfSampleRateIsTooHigh)
     ASSERT_FALSE(result);
     ASSERT_TRUE(output.str().empty());
 
-    ASSERT_THAT(error.str(), StrEq("Invalid sample rate: 50001 Hz, maximum 50000 Hz\n"));
+    ASSERT_THAT(error.str(), StrEq("Invalid sample rate: 96001 Hz, maximum 96000 Hz\n"));
 }
 
 //------------------------------------------------------------------------------
